@@ -6,11 +6,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>ERP</title>
 </head>
 <body>
-	<h1>HI</h1>
-	<a href="${rootPath}/user/join">회원가입</a>
-	<a href="${rootPath}/user/login">로그인</a>
+	<h1>회원가입</h1>
 </body>
 </html>

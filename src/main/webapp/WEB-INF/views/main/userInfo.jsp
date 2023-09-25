@@ -9,8 +9,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>HI</h1>
-	<a href="${rootPath}/user/join">회원가입</a>
-	<a href="${rootPath}/user/login">로그인</a>
+
 </body>
 </html>
