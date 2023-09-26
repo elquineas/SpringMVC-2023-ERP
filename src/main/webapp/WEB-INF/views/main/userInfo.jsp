@@ -9,6 +9,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<h1>회원정보</h1>
 </body>
 </html>

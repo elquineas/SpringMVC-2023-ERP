@@ -19,7 +19,7 @@
     </appender>
 
     <logger name="org.springframework" level="INFO" />
-    <logger name="com.elquineas.hello" level="DEBUG"  additivity="false">
+    <logger name="com.elquineas.erp" level="DEBUG"  additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
 

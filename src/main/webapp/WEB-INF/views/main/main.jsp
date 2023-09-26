@@ -9,6 +9,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>게시판</h1>
+	<h1>메인페이지</h1>
+	<ul>
+		<li><a href="${rootPath}/main/bbs">게시판</a></li>
+		<li><a href="${rootPath}/main/notice">공지사항</a></li>
+		<li><a href="${rootPath}/main/userInfo">회원정보</a></li>
+		<li><a href="${rootPath}/main/admin">관리자</a></li>
+	</ul>
 </body>
 </html>
