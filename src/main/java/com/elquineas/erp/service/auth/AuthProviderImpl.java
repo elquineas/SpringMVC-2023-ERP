@@ -28,18 +28,33 @@ public class AuthProviderImpl implements AuthenticationProvider{
 		log.debug("사용자 이름 : "+username);
 		log.debug("사용자 비번 : "+password);
 		
-		if(!username.equalsIgnoreCase("elquineas")) {
+		if(username.equalsIgnoreCase("admin")) {
+			log.debug("ADMIN");
+		}else if(username.equalsIgnoreCase("user")) {
+			log.debug("USER");
+		}else {
 			throw new UsernameNotFoundException(username + "이 없음");
+			
 		}
+		
 		if(!password.equalsIgnoreCase("1234")) {
 			throw new UsernameNotFoundException("비밀번호 오류!");
 		}
 		
 		List<GrantedAuthority> grantList = new ArrayList<>();
 		
-		grantList.add(new SimpleGrantedAuthority("ROLE_USER"));
+		if(username.equalsIgnoreCase("admin")) {
+			grantList.add(new SimpleGrantedAuthority("ROLE_USER"));
+			grantList.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+		}else if(username.equalsIgnoreCase("user")) {
+			grantList.add(new SimpleGrantedAuthority("ROLE_USER"));
+			
+		}
+		
+		log.debug("사용자 정보 : "+grantList.toString());
+		
+//		grantList.add(new SimpleGrantedAuthority("ROLE_USER"));
 //		grantList.add(new SimpleGrantedAuthority("GUEST"));
-		grantList.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
 		
 		return new UsernamePasswordAuthenticationToken(username, password, grantList);
 	}

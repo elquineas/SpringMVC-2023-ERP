@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+  
+<tiles-definitions>
+	
+	<!-- 타일 화면 미적용 -->
+	<definition name="nomal" template="/WEB-INF/views/home.jsp">
+		<put-attribute name="content" value="" />
+	</definition>
+ 	<definition name="home" extends="nomal">
+		<put-attribute name="main-content" value="/WEB-INF/views/{1}.jsp"/>
+	</definition>
+	
+	<!-- 타일 화면 적용 -->
+	<definition name="default" template="/WEB-INF/views/main.jsp">
+		<put-attribute name="head" value="/WEB-INF/views/includes/include_head.jsp" />
+		<put-attribute name="header" value="/WEB-INF/views/includes/include_header.jsp" />
+		<put-attribute name="nav" value="/WEB-INF/views/includes/include_nav.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/includes/include_footer.jsp" />
+	</definition>
+	<definition name="main" extends="default">
+		<put-attribute name="main-content" value="/WEB-INF/views/main/{1}.jsp"/>
+	</definition>
+	<definition name="main/*" extends="default">
+		<put-attribute name="main-content" value="/WEB-INF/views/main/{1}.jsp"/>
+	</definition>
+	
+	
+	<!-- <definition name="*/*" extends="default">
+		<put-attribute name="main-content" value="/WEB-INF/views/{1}.jsp"/>
+	</definition>
+ 	<definition name="*/*" extends="default">
+		<put-attribute name="main-content" value="/WEB-INF/views/{1}/{2}.jsp"/>
+	</definition> -->
+	
+		<!-- <put-attribute name="main-content" value=""/> -->
+</tiles-definitions>

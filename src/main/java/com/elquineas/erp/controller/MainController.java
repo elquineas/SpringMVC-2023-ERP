@@ -16,12 +16,17 @@ public class MainController {
 	
 	@RequestMapping(value={"/",""},  method = RequestMethod.GET)
 	public String main(Locale locale, Model model) {
-		return "main/main";
+		return "main/mainPage";
 	}
 	
 	@RequestMapping(value = "/bbs", method = RequestMethod.GET)
 	public String bbs(Locale locale, Model model) {
 		return "main/bbs";
+	}
+	
+	@RequestMapping(value = "/bbs_input", method = RequestMethod.GET)
+	public String bbs_input(Locale locale, Model model) {
+		return "main/bbs_input";
 	}
 	
 	@RequestMapping(value = "/notice", method = RequestMethod.GET)

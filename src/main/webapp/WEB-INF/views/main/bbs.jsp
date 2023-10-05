@@ -10,5 +10,7 @@
 </head>
 <body>
 	<h1>게시판</h1>
+	<div>게시판 글 리스트</div>
+	<div><a href="${rootPath}/main/bbs_input">작성하기</a></div>
 </body>
 </html>

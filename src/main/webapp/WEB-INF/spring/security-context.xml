@@ -14,7 +14,8 @@
 		<sec:intercept-url pattern="/home" access="permitAll()"/>
 		<sec:intercept-url pattern="/user/join" access="permitAll()"/>
 		<sec:intercept-url pattern="/user/login" access="permitAll()"/>
-		<sec:intercept-url pattern="main/**" access="isAuthenticated()"/>
+		<sec:intercept-url pattern="/main/admin" access="hasRole('ADMIN')"/>
+		<sec:intercept-url pattern="/main/**" access="isAuthenticated()"/>
 		<!-- 	
 		<sec:intercept-url pattern="/**" access="permitAll()"/>
 		<sec:intercept-url pattern="/home" access="hasRole('USER')"/>	

@@ -1,0 +1,38 @@
+@charset "UTF-8";
+div.main.bbs_box {
+  display: flex;
+  flex-direction: column;
+}
+div.main.bbs_box div.bbs {
+  display: flex;
+}
+div.bbs input {
+  flex: 1;
+}
+div.bbs label,
+div.bbs input {
+  border: 1px solid gray;
+  border-radius: 5px;
+  height: 50px;
+  padding-left: 10px;
+}
+
+div.main.bbs_box div.title_box,
+div.main.bbs_box div.default_box,
+div.main.bbs_box div.content_box {
+  margin: 10px 0;
+}
+
+#input_name {
+  border-right: none;
+  border-radius: 5px 0 0 5px;
+}
+#input_time {
+  border-left: none;
+  border-radius: 0 5px 5px 0;
+}
+
+div.content_box textarea {
+  width: 100%;
+  height: 50%;
+}
