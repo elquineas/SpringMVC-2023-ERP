@@ -1,1 +1,38 @@
 @charset "UTF-8";
+body.user.join_body {
+  /* border: 1px solid black; */
+}
+header.user.join_header {
+  /* border: 1px solid black; */
+  width: 60%;
+  margin: 20px auto;
+  text-align: center;
+}
+div.user.join_form_box {
+  /* border: 1px solid red; */
+  width: 60%;
+  margin: 0 auto;
+}
+form.user.join_form {
+  /* border: 1px solid blue; */
+  display: flex;
+  flex-direction: column;
+}
+form.user.join_form input {
+  width: 100%;
+  height: 30px;
+  margin: 20px 0;
+  padding: 10px;
+  flex: 1;
+}
+div.user.button_box {
+  /* border: 1px solid orange; */
+  display: flex;
+  margin: 20px 0;
+  justify-content: space-between;
+}
+
+div.user.button_box button {
+  width: 45%;
+  height: 40px;
+}

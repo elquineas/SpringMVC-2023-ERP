@@ -12,5 +12,5 @@
 <script>
 	var rootPath = "${rootPath}"
 </script>
-<script src="${rootPath}/res/js/challenge/detail.js"></script>
+<script src="${rootPath}/res/js/join.js"></script>
 </head>

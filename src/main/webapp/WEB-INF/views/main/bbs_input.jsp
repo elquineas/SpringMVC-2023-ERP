@@ -9,8 +9,8 @@
 			<input name="title" placeholder="제목을 입력해 주세요" value="" />
 		</div>
 		<div class="bbs default_box">
-			<input id="input_name" name="name" placeholder="작성자" value="" readonly="readonly"/>
-			<input id="input_time" name="time" placeholder="작성시간" value="" readonly="readonly"/>
+			<input id="input_name" name="name" placeholder="작성자" value="${USER_NAME}" readonly="readonly"/>
+			<input id="input_time" name="time" placeholder="작성시간" value="${WRITE_TIME}" readonly="readonly"/>
 		</div>
 		<div class="bbs content_box">
 			<textarea name="content" placeholder="내용을 입력해 주세요" value="" rows="30"></textarea>
