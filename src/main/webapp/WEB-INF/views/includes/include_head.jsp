@@ -9,8 +9,10 @@
 <script src="https://kit.fontawesome.com/3aaa5e7779.js" crossorigin="anonymous"></script>
 <link href="${rootPath}/res/css/main.css?ver=20231005_001" rel="stylesheet">
 <link href="${rootPath}/res/css/main/bbs.css?ver=20231005_024" rel="stylesheet">
+<link href="${rootPath}/res/css/main/member.css?ver=20231011_011" rel="stylesheet">
 <script>
 	var rootPath = "${rootPath}"
 </script>
-<script src="${rootPath}/res/js/join.js"></script>
+<script src="${rootPath}/res/js/join.js?ver=20231005_024"></script>
+<script src="${rootPath}/res/js/main/member.js?ver=20231011_005"></script>
 </head>

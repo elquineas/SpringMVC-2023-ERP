@@ -2,6 +2,7 @@ package com.elquineas.erp.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import org.springframework.security.core.Authentication;
@@ -12,12 +13,22 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.elquineas.erp.model.UserDto;
+import com.elquineas.erp.service.UserService;
+import com.elquineas.erp.service.impl.UserServiceImpl;
+
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
 @RequestMapping(value = "/main")
 public class MainController {
+	
+	private final UserService uService;
+	public MainController(UserService uService){
+		this.uService = uService;
+	}
+	
 	
 	@RequestMapping(value={"/",""},  method = RequestMethod.GET)
 	public String main(Locale locale, Model model) {
@@ -57,6 +68,8 @@ public class MainController {
 	
 	@RequestMapping(value = "/userInfo", method = RequestMethod.GET)
 	public String userInfo(Locale locale, Model model) {
+		List<UserDto> uList = uService.userList();
+		model.addAttribute("USER_LIST", uList);
 		return "main/userInfo";
 	}
 	

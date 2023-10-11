@@ -19,10 +19,10 @@ public class UserController {
 		return "user/join";
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login(Locale locale, Model model) {
-		return "user/login";
-	}
+//	@RequestMapping(value = "/login", method = RequestMethod.GET)
+//	public String login(Locale locale, Model model) {
+//		return "user/login";
+//	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(Model model) {
