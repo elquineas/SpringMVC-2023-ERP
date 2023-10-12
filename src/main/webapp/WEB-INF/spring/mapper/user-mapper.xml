@@ -20,12 +20,20 @@
 		ORDER BY u_seq ASC
  	</select>
  	
-
- 	
- 	<insert id="insert">
- 		INSERT INTO tbl_todolist (to_sdate, to_stime, to_content)
- 		VALUE(#{to_sdate},#{to_stime},#{to_content})
+ 	<update id="updateUser">
+	 	update 	tbl_user
+		set 	u_name 		= #{u_name}
+		,		u_dept 		= #{u_dept}
+		,		u_position 	= #{u_position}
+		,		u_role		= #{u_role}
+		where 	u_seq = #{u_seq}
+		and 	u_id = #{u_id}
+ 	</update>
+ 	<insert id="insertUser">
+ 		INSERT INTO tbl_user (u_id,u_password,u_name,u_dept,u_position,u_role)
+		VALUES(#{u_id},#{u_password},#{u_name},#{u_dept},#{u_position},#{u_role});
  	</insert>
+ 	
  	<update id="update"></update>
  
  </mapper> 

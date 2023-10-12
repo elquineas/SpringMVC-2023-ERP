@@ -10,9 +10,12 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.elquineas.erp.model.DeptDto;
+import com.elquineas.erp.model.PositionDto;
 import com.elquineas.erp.model.UserDto;
 import com.elquineas.erp.service.UserService;
 import com.elquineas.erp.service.impl.UserServiceImpl;
@@ -69,13 +72,64 @@ public class MainController {
 	@RequestMapping(value = "/userInfo", method = RequestMethod.GET)
 	public String userInfo(Locale locale, Model model) {
 		List<UserDto> uList = uService.userList();
+		List<DeptDto> dList = uService.deptList();
+		List<PositionDto> pList = uService.positionList();
+		int newSeq = uService.getSeq();
+		model.addAttribute("SEQ", newSeq);
 		model.addAttribute("USER_LIST", uList);
+		model.addAttribute("DEPT_LIST", dList);
+		model.addAttribute("POSITION_LIST", pList);
+		return "main/userInfo";
+	}
+	@RequestMapping(value = "/userInfo", method = RequestMethod.POST)
+	public String saveUser(@ModelAttribute("USER") UserDto uDto, Model model) {
+		log.debug("저장 : {} ",uDto.toString());
+		if(uDto.getU_dept() == "0000") {
+			uDto.setU_role("ROLE_ADMIN");
+		}else{
+			uDto.setU_role("ROLE_USER");
+		}
+		uService.updateUser(uDto);
+		
+		List<UserDto> uList = uService.userList();
+		List<DeptDto> dList = uService.deptList();
+		List<PositionDto> pList = uService.positionList();
+		int newSeq = uService.getSeq();
+		model.addAttribute("SEQ", newSeq);
+		model.addAttribute("USER_LIST", uList);
+		model.addAttribute("DEPT_LIST", dList);
+		model.addAttribute("POSITION_LIST", pList);
+		return "main/userInfo";
+	}
+	@RequestMapping(value = "/userAddInfo", method = RequestMethod.POST)
+	public String insertUser(@ModelAttribute("USER") UserDto uDto, Model model) {
+		log.debug("저장 : {} ",uDto.toString());
+		if(uDto.getU_dept() == "0000") {
+			uDto.setU_role("ROLE_ADMIN");
+		}else{
+			uDto.setU_role("ROLE_USER");
+		}
+		uService.insertUser(uDto);
+		
+		List<UserDto> uList = uService.userList();
+		List<DeptDto> dList = uService.deptList();
+		List<PositionDto> pList = uService.positionList();
+		int newSeq = uService.getSeq();
+		model.addAttribute("SEQ", newSeq);
+		model.addAttribute("USER_LIST", uList);
+		model.addAttribute("DEPT_LIST", dList);
+		model.addAttribute("POSITION_LIST", pList);
 		return "main/userInfo";
 	}
 	
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String admin(Locale locale, Model model) {
 		return "main/admin";
+	}
+	
+	@ModelAttribute("USER")
+	public UserDto uDto() {
+		return UserDto.builder().build();
 	}
 	
 }

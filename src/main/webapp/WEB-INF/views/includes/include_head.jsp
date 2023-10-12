@@ -14,5 +14,5 @@
 	var rootPath = "${rootPath}"
 </script>
 <script src="${rootPath}/res/js/join.js?ver=20231005_024"></script>
-<script src="${rootPath}/res/js/main/member.js?ver=20231011_005"></script>
+<script src="${rootPath}/res/js/main/member.js?ver=20231012_016"></script>
 </head>

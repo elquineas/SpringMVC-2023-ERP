@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.elquineas.erp.dao.UserDao;
+import com.elquineas.erp.model.DeptDto;
+import com.elquineas.erp.model.PositionDto;
 import com.elquineas.erp.model.UserDto;
 import com.elquineas.erp.service.UserService;
 
@@ -37,6 +39,33 @@ public class UserServiceImpl implements UserService {
 	public List<UserDto> userList() {
 		List<UserDto> uList = uDao.selectList();	
 		return uList;
+	}
+
+	@Override
+	public List<DeptDto> deptList() {
+		List<DeptDto> dList = uDao.selectDeptList();	
+		return dList;
+	}
+
+	@Override
+	public List<PositionDto> positionList() {
+		List<PositionDto> pList = uDao.selectPositionList();	
+		return pList;
+	}
+
+	@Override
+	public int updateUser(UserDto uDto) {
+		return uDao.updateUser(uDto);
+	}
+
+	@Override
+	public int getSeq() {
+		return uDao.getSeq();
+	}
+
+	@Override
+	public int insertUser(UserDto uDto) {
+		return uDao.insertUser(uDto);
 	}
 
 }
