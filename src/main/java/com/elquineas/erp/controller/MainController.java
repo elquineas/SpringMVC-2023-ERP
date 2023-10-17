@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.elquineas.erp.model.BoardDto;
 import com.elquineas.erp.model.DeptDto;
 import com.elquineas.erp.model.PositionDto;
 import com.elquineas.erp.model.UserDto;
+import com.elquineas.erp.service.MainService;
 import com.elquineas.erp.service.UserService;
 import com.elquineas.erp.service.impl.UserServiceImpl;
 
@@ -28,8 +30,10 @@ import lombok.extern.slf4j.Slf4j;
 public class MainController {
 	
 	private final UserService uService;
-	public MainController(UserService uService){
+	private final MainService mService;
+	public MainController(UserService uService,MainService mService){
 		this.uService = uService;
+		this.mService = mService;
 	}
 	
 	
@@ -40,6 +44,9 @@ public class MainController {
 	
 	@RequestMapping(value = "/bbs", method = RequestMethod.GET)
 	public String bbs(Locale locale, Model model) {
+		List<BoardDto> bList = mService.boardList();
+		model.addAttribute("BOARD_LIST", bList);
+		
 		return "main/bbs";
 	}
 	
