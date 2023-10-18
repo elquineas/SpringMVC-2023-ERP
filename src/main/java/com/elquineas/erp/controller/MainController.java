@@ -66,6 +66,19 @@ public class MainController {
 		return "main/bbs_input";
 	}
 	
+	@RequestMapping(value = "/bbs_detail", method = RequestMethod.GET)
+	public String bbs_detail(String seq, Model model, Authentication authentication) {
+		log.debug("게시판 SEQ : "+seq);
+		mService.boardAddSeq(seq);
+		BoardDto bDto = mService.boardDetail(seq);
+		log.debug("게시판 로그 : "+bDto.toString());
+		model.addAttribute("BOARD", bDto);
+		return "main/bbs_detail";
+//		return "main/bbs";
+	}
+	
+	
+	
 	@RequestMapping(value = "/notice", method = RequestMethod.GET)
 	public String notice(Locale locale, Model model) {
 		return "main/notice";

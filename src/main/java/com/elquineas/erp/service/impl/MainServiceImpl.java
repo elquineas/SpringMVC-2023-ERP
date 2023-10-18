@@ -25,7 +25,18 @@ public class MainServiceImpl implements MainService {
 		List<BoardDto> bList = bDao.selectList();
 		return bList;
 	}
+	
+	@Override
+	public BoardDto boardDetail(String seq) {
+		BoardDto bDto = bDao.boardDetail(seq);
+		return bDto;
+	}
 
+	@Override
+	public void boardAddSeq(String seq) {
+		bDao.boardAddSeq(seq);
+	}
+	
 	@Override
 	public int updateBoard(UserDto uDto) {
 		// TODO Auto-generated method stub
@@ -37,5 +48,7 @@ public class MainServiceImpl implements MainService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+
 
 }

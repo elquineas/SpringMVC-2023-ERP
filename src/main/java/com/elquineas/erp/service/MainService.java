@@ -12,5 +12,7 @@ public interface MainService {
 	public List<BoardDto> boardList();
 	public int updateBoard(UserDto uDto);
 	public int insertBoard(UserDto uDto);
+	public BoardDto boardDetail(String seq);
+	public void boardAddSeq(String seq);
 	
 }

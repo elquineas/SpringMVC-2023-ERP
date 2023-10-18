@@ -4,26 +4,27 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
 <c:set value="${pageContext.request.contextPath}"  var="rootPath" />   
 
-<h1>게시판</h1>
-<div>게시판 글 리스트</div>
-<table class="board table">
-	<thead>
-		<tr>
-			<td>작성자</td>
-			<td>제목</td>
-			<td>날짜</td>
-			<td>조회수</td>
-		</tr>
-	</thead>
-	<tbody>
-		<c:forEach items="${BOARD_LIST}" var="BOARD" varStatus="status">
+<div class="board body">
+	<h1>게시판</h1>
+	<table class="board table">
+		<thead>
 			<tr>
-				<td>${BOARD.b_username}</td>
-				<td>${BOARD.b_title}</td>
-				<td>${BOARD.b_date}</td>
-				<td>${BOARD.b_count}</td>
+				<td>작성자</td>
+				<td>제목</td>
+				<td>날짜</td>
+				<td>조회수</td>
 			</tr>
-		</c:forEach>
-	</tbody>
-</table>
-<div><a href="${rootPath}/main/bbs_input">작성하기</a></div>
+		</thead>
+		<tbody class="board list">
+			<c:forEach items="${BOARD_LIST}" var="BOARD" varStatus="status">
+					<tr data-seq="${BOARD.b_seq}" >
+						<td>${BOARD.b_username}</td>
+						<td>${BOARD.b_title}</td>
+						<td>${BOARD.b_date}</td>
+						<td>${BOARD.b_count}</td>
+					</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+	<div><a href="${rootPath}/main/bbs_input">작성하기</a></div>
+</div>

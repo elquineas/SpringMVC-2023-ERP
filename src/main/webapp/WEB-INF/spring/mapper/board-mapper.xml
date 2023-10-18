@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.elquineas.erp.dao.BoardDao">
+ 
+ 	<select id="selectList">
+		SELECT b_seq, b_username, b_nickname, 
+		       b_type, b_title, b_content, b_count,
+		       CASE WHEN ( LEFT(NOW(),10) = LEFT(b_date,10) ) THEN SUBSTRING(b_date,12,8)
+		            ELSE LEFT(b_date,10) END b_date
+		FROM   tbl_board
+		WHERE  b_type = 'board'
+		ORDER BY b_seq DESC;
+ 	</select>
+ 	
+ 	<select id="boardDetail">
+		SELECT *
+		FROM   tbl_board
+		WHERE  b_seq = #{b_seq}
+ 	</select>
+ 	
+ 	<update id="boardAddSeq">
+ 		UPDATE tbl_board
+ 		SET	   b_count = b_count+1
+ 		WHERE  b_seq = #{b_seq}
+ 	</update>
+ 	
+ </mapper> 

@@ -8,6 +8,9 @@ import com.elquineas.erp.model.BoardDto;
 
 public interface BoardDao {
 	
-	@Select("SELECT * FROM tbl_board WHERE b_type = 'board' ")
 	public List<BoardDto> selectList();
+
+	public BoardDto boardDetail(String b_seq);
+
+	public void boardAddSeq(String seq);
 }
